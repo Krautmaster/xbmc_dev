@@ -23,7 +23,7 @@ clear
 echo -e "${green}Festplatte partitioniert und /dev/sda1 formatiert.${NC}" # Textausgaben
 mount /dev/sda1 /mnt >> /tmp/log.log # Festplatte wird eingehängt, eventuelle Ausgaben in ein Log geschrieben, um den Bildschirm nicht voll zu spammen ;)
 echo -e "${blue}/dev/sda1 wurde nach /mnt eingehängt.${NC}" # Textausgaben.
-wget -q https://raw.github.com/Korni22/xbmc_dev/master/Scripts/script_2.sh # 2. Teil des Setup-Scripts wird geladen.
+wget -q https://raw.github.com/Korni22/xbmc_dev/master/script_2.sh # 2. Teil des Setup-Scripts wird geladen.
 mv ./script_2.sh /mnt/ # Script wird an seinen angestammten Platz verschoben.
 echo -e "${blue}Basissystem wird installiert. 
 Dauert je nach Internetverbindung ungefähr 5-15 Minuten.${NC}" # Textausgaben
@@ -31,7 +31,7 @@ pacstrap /mnt base{,-devel} acpid avahi dhcpcd fish git htop iproute lftp lynx m
 clear # Bildschirminhalt wird geleert.
 echo -e "${blue}Basissystem wurde installiert.${NC}" # Textausgaben
 genfstab -p /mnt >> /mnt/etc/fstab # Dateisystemtabelle wird generiert und geschrieben.
-wget -q https://raw.github.com/Korni22/xbmc_dev/master/Scripts/script_3.sh & 
+wget -q https://raw.github.com/Korni22/xbmc_dev/master/script_3.sh & 
 echo -e "${green}Dateisystemtabelle wurde generiert.${NC}" # 3. Teil des Scripts wird geladen.
 chmod 777 /mnt/script_2.sh # Rechte für das 2. Script werden gesetzt.
 arch-chroot /mnt/ /script_2.sh # 2. Script wird im installierten System ausgeführt
